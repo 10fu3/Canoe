@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Router" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMy-16-t3v">
+                                <rect key="frame" x="4" y="154" width="406" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたのID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N8-Bm-l4X">
+                                <rect key="frame" x="4" y="48" width="85.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ダウンロードする対象のURL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBS-QF-K7M">
+                                <rect key="frame" x="4" y="125" width="223" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-Hm-r3X">
+                                <rect key="frame" x="4" y="221" width="406" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="移譲先IP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJ7-6T-enR">
+                                <rect key="frame" x="4" y="192" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUI-oX-pFP">
+                                <rect key="frame" x="4" y="77" width="406" height="40"/>
+                                <color key="backgroundColor" red="0.33268229170000002" green="0.90196078430000004" blue="0.60922797399999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4Lt-Bt-6mA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7B-BM-22M">
+                                <rect key="frame" x="4" y="822" width="406" height="30"/>
+                                <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ダウンロードを要請する"/>
+                                <connections>
+                                    <action selector="onRun:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Mo-g2-C5p"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fx5-4h-Lgw">
+                                <rect key="frame" x="4" y="288" width="406" height="526"/>
+                                <color key="backgroundColor" red="0.22724102970000001" green="0.22724102970000001" blue="0.22724102970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U5-Rq-ISz">
+                                <rect key="frame" x="4" y="259" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cMy-16-t3v" secondAttribute="trailing" constant="4" id="2et-Pm-ogh"/>
+                            <constraint firstItem="cMy-16-t3v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="5Zg-nC-uGV"/>
+                            <constraint firstItem="l7B-BM-22M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="97Y-Om-fgh"/>
+                            <constraint firstItem="XBS-QF-K7M" firstAttribute="top" secondItem="zUI-oX-pFP" secondAttribute="bottom" constant="8" id="ASc-U9-MYv"/>
+                            <constraint firstItem="0N8-Bm-l4X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="C9L-FL-bl9"/>
+                            <constraint firstItem="zUI-oX-pFP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="DR9-Cr-5LK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Efy-Hm-r3X" secondAttribute="trailing" constant="4" id="DnY-UY-7pF"/>
+                            <constraint firstItem="l7B-BM-22M" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="HZP-3A-AHi"/>
+                            <constraint firstItem="0N8-Bm-l4X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="IEH-pn-onL"/>
+                            <constraint firstItem="QJ7-6T-enR" firstAttribute="top" secondItem="cMy-16-t3v" secondAttribute="bottom" constant="8" id="Jnq-k6-6yc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fx5-4h-Lgw" secondAttribute="trailing" constant="4" id="Maz-EM-gvw"/>
+                            <constraint firstItem="Efy-Hm-r3X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="N4g-rb-aKk"/>
+                            <constraint firstItem="cMy-16-t3v" firstAttribute="top" secondItem="XBS-QF-K7M" secondAttribute="bottom" constant="8" id="NZC-aZ-cvn"/>
+                            <constraint firstItem="l7B-BM-22M" firstAttribute="top" secondItem="Fx5-4h-Lgw" secondAttribute="bottom" constant="8" id="P0Z-Jq-7TU"/>
+                            <constraint firstItem="3U5-Rq-ISz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="SPI-lc-Uiy"/>
+                            <constraint firstItem="3U5-Rq-ISz" firstAttribute="top" secondItem="Efy-Hm-r3X" secondAttribute="bottom" constant="8" id="YMR-fT-yS4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l7B-BM-22M" secondAttribute="trailing" constant="4" id="g5z-MU-8PV"/>
+                            <constraint firstItem="Fx5-4h-Lgw" firstAttribute="top" secondItem="3U5-Rq-ISz" secondAttribute="bottom" constant="8" id="l5n-gw-QLk"/>
+                            <constraint firstItem="Efy-Hm-r3X" firstAttribute="top" secondItem="QJ7-6T-enR" secondAttribute="bottom" constant="8" id="l5s-Cr-dbm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zUI-oX-pFP" secondAttribute="trailing" constant="4" id="lu9-eg-Tuk"/>
+                            <constraint firstItem="QJ7-6T-enR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="nhj-qt-vfR"/>
+                            <constraint firstItem="Fx5-4h-Lgw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="ocJ-OI-TBH"/>
+                            <constraint firstItem="XBS-QF-K7M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="rfw-HA-all"/>
+                            <constraint firstItem="zUI-oX-pFP" firstAttribute="top" secondItem="0N8-Bm-l4X" secondAttribute="bottom" constant="8" id="ziU-li-xQ1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="id" destination="zUI-oX-pFP" id="QzQ-fn-kvJ"/>
+                        <outlet property="log" destination="Fx5-4h-Lgw" id="awF-Vc-IVn"/>
+                        <outlet property="run" destination="l7B-BM-22M" id="ATz-CX-rYF"/>
+                        <outlet property="serverIp" destination="Efy-Hm-r3X" id="oxQ-3j-pgp"/>
+                        <outlet property="urlbox" destination="cMy-16-t3v" id="9Om-0I-OHX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="-51.5625"/>
+        </scene>
+    </scenes>
+</document>
