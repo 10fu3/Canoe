@@ -9,11 +9,15 @@ import MultipeerConnectivity
 import Foundation
 
 extension TimeZone {
+    //タイムゾーンに関する変数を追加
+    //標準時
     static let gmt = TimeZone(secondsFromGMT: 0)!
+    //日本時間
     static let jst = TimeZone(identifier: "Asia/Tokyo")!
 }
 
 extension NSObjectProtocol where Self: NSObject {
+    //Printメソッドでフィールドを調べるためのExtension　未使用
     var description: String {
         let mirror = Mirror(reflecting: self)
         return mirror.children
@@ -35,7 +39,7 @@ class LoopIterator<T>{
         it = Array.makeIterator()
     }
     func next() -> T {
-        //Iteratorのカレントを一つすすめる
+        //Iteratorの現在位置を一つすすめる
         var value:T? = it.next()
         //もし最後だったら
         if(value == nil){
@@ -49,8 +53,10 @@ class LoopIterator<T>{
 
 class MinistryOfP2P {
     
+    //シングルトンオブジェクト
     static let Single = MinistryOfP2P()
     
+    //周囲の端末にデータを反復送信する際に使う
     var roopData: [String:[Timer]]
     
     
@@ -58,6 +64,7 @@ class MinistryOfP2P {
     init() {
         roopData = Dictionary()
     }
+    
     
     static func doLinkList(jsonDlList:String) {
         do{
@@ -81,18 +88,25 @@ class MinistryOfP2P {
                     //これを他のP2P接続されている端末に一斉送信する
                     let message = Packet
                                  .builder()
+                                 //分割されたデータであることを示す
                                  .setType(type: .ExportData)
+                                 //パケットの発行時刻 実行時に設定
                                  .setNowPutOutDate()
+                                 //この端末に振られたUUIDを発信者として設定
                                  .setFromAddress(address: P2PConnectivity.manager.id)
+                                 //すべての端末に送信するように 送信先を設定
                                  .setToAddressAll()
  
                     var count = 0
+                    
+                    //なぜかパケットを受信してくれない可能性があるので 合計で5回、周囲の端末に送信するようにする この際、１秒ごとに送信するように設定する
                     Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { timer in
                         if(count > 5){
                             timer.invalidate()
                             return
                         }
                         count += 1
+                        //送信
                         P2PConnectivity.manager.send(message: message.toData() ?? Data())
                     })
 
@@ -108,6 +122,20 @@ class MinistryOfP2P {
     }
     
     static func parseAddressAndUrl(pairs:[String],urls: [String]) ->([(String,String)]){
+        //端末のIDと発行されたリンクを紐付けるメソッド
+        //端末の台数と発行されたリンクの数が合わないことを想定したメソッド
+        //
+        //パターンその1
+        // 端末 {A,B,C}
+        // リンク{"1","2","3","4","5"}
+        // メソッド実行後→ {"1":A ,"2":B ,"3":C ,"4":A ,"5":B}
+        //
+        //パターンその2
+        // 端末 {A,B,C,D,E,F,G,H,I,J}
+        // リンク{"1","2","3","4","5"}
+        // メソッド実行後→ {"1":A ,"2":B ,"3":C ,"4":D ,"5":E ,"NOURL":F ,"NOURL":G ,"NOURL":H ,"NOURL":I ,"NOURL":J}
+        
+        
         var url = urls
         var copyPairs = pairs.map{$0}
         let itPairs = LoopIterator.init(Array: pairs)
@@ -123,6 +151,7 @@ class MinistryOfP2P {
         return zip(copyPairs, url).map{$0}
     }
     
+    //辞書をJSONに変換する
     static func toJSON(array:([(String,String)])) -> String {
         return "{"+array.map{"\""+$0.1+"\""+":"+"\""+$0.0+"\""}.joined(separator: ",")+"}"
     }
